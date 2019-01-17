@@ -1,0 +1,26 @@
+var express = require('express');
+var router = express.Router();
+const request = require('request')
+
+const apiKey = require('../config')
+const apiBaseUrl = `https://api.openweathermap.org/data/2.5/weather?units=imperial&appid=${apiKey}`
+
+router.get('/', function(req,res){
+  res.render('index')})
+
+router.post('/yourWeather',(req,res)=>{
+// submitted data from forms comes in the request object
+// querystring data=> is in req.query
+// posed data=> is in req.body
+
+  const weatherLocation= req.body.weatherLocation;
+  res.json(req.body)
+  // const searchUrl=`${apiBaseUrl}`
+  // request.get(searchUrl, (error, response, body)=>{
+  //   const parsedData = JSON.parse(body);
+  //   res.render('now_playing',{
+  //     imageBaseUrl,
+  //     parsedData: parsedData.results
+    })
+
+module.exports = router;
