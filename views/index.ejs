@@ -25,7 +25,7 @@
         navigator.geolocation.getCurrentPosition(function(position) {
             lat = position.coords.latitude;
             lon = position.coords.longitude;
-            const currLocation = `${lat}, ${lon}`
+            const currLocation = `lat=${lat}&lon=${lon}`
             console.log(currLocation)
             // console.log(currLocation)
             document.querySelector('.yourLocation').value = `${currLocation}`

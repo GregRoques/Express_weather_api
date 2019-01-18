@@ -14,13 +14,15 @@ router.post('/yourWeather',(req,res)=>{
 // posed data=> is in req.body
 
   const weatherLocation= req.body.weatherLocation;
-  res.json(req.body)
-  // const searchUrl=`${apiBaseUrl}`
-  // request.get(searchUrl, (error, response, body)=>{
-  //   const parsedData = JSON.parse(body);
-  //   res.render('now_playing',{
-  //     imageBaseUrl,
-  //     parsedData: parsedData.results
-    })
-
+  // res.json(req.body)
+  const searchUrl=`${apiBaseUrl}&${weatherLocation}`
+  console.log(searchUrl)
+  request.get(searchUrl, (error, response, body)=>{
+    const parsedData = JSON.parse(body);
+    res.json(parsedData)
+    // res.render('/yourWeather',{
+    //   parsedData: parsedData.results,
+    // })
+  })
+})
 module.exports = router;
